@@ -7,12 +7,13 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 const theme: DefaultTheme = {
   colors: {
     red: {
-      light: "#ff9393",
+      light: "#f5d7d7",
       dark: "#FF3131",
     },
     gray: {
       light: "#F6F6F6",
-      dark: "#E6E6E6",
+      medium: "#E6E6E6",
+      dark: "#b9b9b9",
     },
     blue: {
       light: "#EBECFF",
