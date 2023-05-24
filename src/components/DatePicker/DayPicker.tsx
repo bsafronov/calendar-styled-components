@@ -1,7 +1,6 @@
 import { css, styled } from "styled-components";
 import { CircleButton } from "../Common";
 import { useCalendarStore } from "../../store/useCalendarStore";
-import { useState } from "react";
 
 const DaysWrapper = styled.div`
   display: flex;
@@ -12,12 +11,20 @@ const Day = styled.div<DayProps>`
   font-weight: bold;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1;
-  gap: 0.25rem;
+  flex: 1;
   transition: flex-grow 0.4s;
   ${({ $active }) => $active && "flex-grow: 2;"};
+  gap: 0.25rem;
   & > span {
     font-size: 0.75rem;
+  }
+  @keyframes slideIn {
+    from {
+      grid-column: span 1;
+    }
+    to {
+      grid-column: span 2;
+    }
   }
 `;
 
