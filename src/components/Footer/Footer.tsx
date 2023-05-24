@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
-import { InitialButton } from "./Common";
+import { InitialButton } from "../Common";
+import { useCalendarStore } from "../../store/useCalendarStore";
 
 const Footer = styled.footer`
   display: flex;
@@ -14,7 +15,7 @@ const Button = styled(InitialButton)`
   border-radius: 4px;
   color: ${({ theme }) => theme.colors.red.dark};
   padding: 0.5rem 1rem;
-  font-size: 18px;
+  font-size: 1.25rem;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.red.light};
@@ -22,10 +23,18 @@ const Button = styled(InitialButton)`
 `;
 
 export default () => {
+  const { setToday, activeEvent, deleteEventTime } = useCalendarStore(
+    (state) => ({
+      setToday: state.setToday,
+      activeEvent: state.activeEvent,
+      deleteEventTime: state.deleteEventTime,
+    })
+  );
+
   return (
     <Footer>
-      <Button>Today</Button>
-      <Button>Delete</Button>
+      <Button onClick={setToday}>Today</Button>
+      {activeEvent && <Button onClick={deleteEventTime}>Delete</Button>}
     </Footer>
   );
 };

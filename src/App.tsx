@@ -1,18 +1,22 @@
 import { styled } from "styled-components";
-import Header from "./components/Header";
-import DatePicker from "./components/DatePicker";
-import Journal from "./components/Journal";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Journal from "./components/Journal/Journal";
+import Footer from "./components/Footer/Footer";
+import DatePicker from "./components/DatePicker/DatePicker";
 
 const Calendar = styled.div`
-  margin: auto;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
+  max-height: 100vh;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors.gray.medium};
   max-width: 740px;
+
+  @media (min-width: 741px) {
+    margin: auto;
+    margin-top: 2rem;
+    max-height: 90vh;
+  }
 `;
 
 export default () => {
