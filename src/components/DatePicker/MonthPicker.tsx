@@ -52,7 +52,6 @@ export default () => {
   const date = new Date(dateString);
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
-
   return (
     <MonthWrapper>
       <ButtonWrapper>
